@@ -18,15 +18,15 @@
 }
 
 :root {
-  --purple-dark: #46207e;
+  --purple-dark: #2a0c57;
   --purple: #7c3aed;
-  --green-soft: #f3e8ff;
+  -soft: #dcd1e9;
   --orange: #f97316;
   --orange-dark: #c2540a;
   --white: #ffffff;
   --text: #1f2937;
   --text-muted: #5b6472;
-  --border: #e0d4f0;
+  --border: #d0c1e5;
   --radius: 12px;
   --shadow: 0 4px 14px rgba(20, 83, 45, 0.12);
 }
@@ -70,7 +70,7 @@ ul {
 
 /* ---------- 3. HEADER & NAVBAR ---------- */
 .site-header {
-  background-color: var(--green-dark);
+  background-color: var(--purple-dark);
   color: var(--white);
   position: sticky;        /* header tetap di atas saat scroll */
   top: 0;
@@ -115,7 +115,7 @@ ul {
 .nav-list a:hover,
 .nav-list a:focus {
   background-color: var(--orange);
-  color: var(--white);
+  color: var(--purple);
 }
 
 /* ---------- 4. TOMBOL ---------- */
@@ -145,7 +145,7 @@ ul {
 
 /* ---------- 5. HERO ---------- */
 .hero {
-  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
   color: var(--white);
   text-align: center;
   padding: 90px 0;
@@ -182,13 +182,13 @@ ul {
 }
 
 .section-alt {
-  background-color: var(--green-soft);
+  background-color: var(-soft);
 }
 
 .section-title {
   text-align: center;
   font-size: 2rem;
-  color: var(--green-dark);
+  color: var(-dark);
   margin-bottom: 10px;
 }
 
@@ -211,11 +211,11 @@ ul {
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
-  background-color: var(--green-soft);
+  background-color: var(-soft);
   border: 1px solid var(--border);
   border-radius: 999px;
   font-weight: 600;
-  color: var(--green-dark);
+  color: var(-dark);
   transition: transform 0.2s;
 }
 
@@ -254,7 +254,7 @@ ul {
   justify-content: center;
   align-items: center;
   height: 130px;
-  background-color: var(--green-soft);
+  background-color: var(-soft);
 }
 
 .card-emoji {
@@ -281,7 +281,7 @@ ul {
 }
 
 .card-body h3 {
-  color: var(--green-dark);
+  color: var(-dark);
   font-size: 1.05rem;
   margin-bottom: 6px;
 }
@@ -309,7 +309,7 @@ ul {
 
 .info-text h3,
 .info-side h3 {
-  color: var(--green);
+  color: var();
   margin-bottom: 10px;
 }
 
@@ -328,12 +328,12 @@ ul {
   content: "\2713";
   position: absolute;
   left: 0;
-  color: var(--green);
+  color: var(--purple);
   font-weight: 700;
 }
 
 .info-side {
-  background-color: var(--green-soft);
+  background-color: var(-soft);
   border-left: 5px solid var(--orange);
   border-radius: var(--radius);
   padding: 24px;
@@ -367,7 +367,7 @@ ul {
 .contact-form legend {
   padding: 0 10px;
   font-weight: 600;
-  color: var(--green);
+  color: var();
 }
 
 .form-group {
@@ -395,8 +395,8 @@ ul {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  outline: 2px solid var(--green);
-  border-color: var(--green);
+  outline: 2px solid var();
+  border-color: var();
 }
 
 .form-group textarea {
@@ -405,7 +405,7 @@ ul {
 
 /* ---------- 8. FOOTER & RESPONSIF ---------- */
 .site-footer {
-  background-color: var(--green-dark);
+  background-color: var(--purple-dark);
   color: var(--white);
   padding: 28px 0;
   font-size: 0.9rem;
@@ -474,7 +474,7 @@ ul {
 
 /* Judul halaman di bagian atas tiap halaman */
 .page-header {
-  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
   color: var(--white);
   text-align: center;
   padding: 50px 0;
@@ -494,7 +494,7 @@ ul {
   margin-top: auto;
   padding-top: 12px;
   font-weight: 600;
-  color: var(--green);
+  color: var();
 }
 
 .card-link:hover {
@@ -544,7 +544,7 @@ img {
 }
 
 .store-intro-text h2 {
-  color: var(--green-dark);
+  color: var(-dark);
   margin-bottom: 12px;
 }
 
