@@ -1,0 +1,580 @@
+/* =====================================================
+   UTS Web Programming 1 - Website Minimarket "Bintani Mart"
+   File : css/style.css
+   Isi  : 1. Reset & Variabel   5. Hero
+          2. Layout dasar       6. Section, Kategori, Kartu, Info
+          3. Header & Navbar    7. Formulir
+          4. Tombol             8. Footer & Responsif
+   ===================================================== */
+
+/* ---------- 1. RESET & VARIABEL ---------- */
+/* Box Model: border-box membuat width sudah termasuk padding + border */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple-dark: #46207e;
+  --purple: #7c3aed;
+  --green-soft: #f3e8ff;
+  --orange: #f97316;
+  --orange-dark: #c2540a;
+  --white: #ffffff;
+  --text: #1f2937;
+  --text-muted: #5b6472;
+  --border: #e0d4f0;
+  --radius: 12px;
+  --shadow: 0 4px 14px rgba(20, 83, 45, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- 2. LAYOUT DASAR ---------- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;          /* menengahkan container */
+  padding: 0 20px;         /* ruang kiri-kanan */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- 3. HEADER & NAVBAR ---------- */
+.site-header {
+  background-color: var(--green-dark);
+  color: var(--white);
+  position: sticky;        /* header tetap di atas saat scroll */
+  top: 0;
+  z-index: 10;
+}
+
+/* Flexbox: logo di kiri, navigasi di kanan */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.brand-icon {
+  font-size: 1.6rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nav-list a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* ---------- 4. TOMBOL ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid var(--orange);
+  border-radius: 999px;
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: transparent;
+  color: var(--orange-dark);
+}
+
+.hero .btn:hover,
+.hero .btn:focus {
+  color: var(--white);
+}
+
+/* ---------- 5. HERO ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: var(--white);
+  text-align: center;
+  padding: 90px 0;
+}
+
+.hero-inner {
+  max-width: 780px;
+}
+
+.hero-label {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 999px;
+  background-color: var(--orange);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* ---------- 6. SECTION, KATEGORI, KARTU, INFO ---------- */
+.section {
+  padding: 70px 0;
+}
+
+.section-alt {
+  background-color: var(--green-soft);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+/* Kategori: Flexbox dengan wrap, item rata tengah */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.category-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background-color: var(--green-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--green-dark);
+  transition: transform 0.2s;
+}
+
+.category-list li:hover {
+  transform: translateY(-3px);
+}
+
+.category-list span {
+  font-size: 1.5rem;
+}
+
+/* Kartu produk: CSS Grid 4 kolom */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.card {
+  display: flex;                 /* flex column agar tinggi kartu seragam */
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  background-color: var(--green-soft);
+}
+
+.card-emoji {
+  font-size: 3.8rem;
+}
+
+.card-body {
+  flex: 1;                       /* isi kartu mengisi sisa ruang */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card-body h3 {
+  color: var(--green-dark);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.card-body p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.card-body .price {
+  margin-top: auto;              /* harga selalu menempel di bawah kartu */
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--orange-dark);
+}
+
+/* Info toko: CSS Grid 2 kolom (teks lebih lebar dari sidebar) */
+.info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  margin-top: 30px;
+}
+
+.info-text h3,
+.info-side h3 {
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.info-text p {
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.benefit-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 8px;
+}
+
+.benefit-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.info-side {
+  background-color: var(--green-soft);
+  border-left: 5px solid var(--orange);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.info-side dt {
+  font-weight: 600;
+}
+
+.info-side dd {
+  margin-bottom: 18px;
+  color: var(--text-muted);
+}
+
+.address {
+  font-weight: 500;
+}
+
+/* ---------- 7. FORMULIR ---------- */
+.contact-wrap {
+  max-width: 640px;
+}
+
+.contact-form fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  background-color: var(--white);
+}
+
+.contact-form legend {
+  padding: 0 10px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1px solid #b9cfc0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--green);
+  border-color: var(--green);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* ---------- 8. FOOTER & RESPONSIF ---------- */
+.site-footer {
+  background-color: var(--green-dark);
+  color: var(--white);
+  padding: 28px 0;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-inner address {
+  font-style: normal;
+}
+
+.footer-inner a {
+  color: #fdba74;
+}
+
+/* Tablet */
+@media (max-width: 960px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-list {
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .info-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ---------- 9. TAMBAHAN MULTI-HALAMAN & GAMBAR ---------- */
+
+/* Menu navbar halaman aktif (atribut aria-current="page") */
+.nav-list a[aria-current="page"] {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* Judul halaman di bagian atas tiap halaman */
+.page-header {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: var(--white);
+  text-align: center;
+  padding: 50px 0;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+/* Grid 3 kolom untuk kartu (beranda & kategori) */
+.card-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-link {
+  margin-top: auto;
+  padding-top: 12px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.card-link:hover {
+  color: var(--orange-dark);
+}
+
+/* Bagian ajakan */
+.cta {
+  text-align: center;
+}
+
+/* Gambar: responsif, rasio terjaga */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Foto toko: rasio seragam agar galeri rapi, gambar dipotong (crop) pas */
+.store-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.store-photo {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.store-photo figcaption {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Perkenalan toko di beranda: Grid 2 kolom */
+.store-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.store-intro-text h2 {
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.store-intro-text p {
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+/* Galeri toko: Grid 3 kolom */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 960px) {
+  .card-grid-3,
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-grid-3,
+  .gallery,
+  .store-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 36px 0;
+  }
+}
